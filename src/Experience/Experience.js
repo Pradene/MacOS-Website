@@ -1,4 +1,4 @@
-import TopBar from "../top/TopBar"
+import TopBar from "./top/TopBar"
 import DinoGame from "./game/DinoGame"
 import Nav from "./nav/Nav"
 import Notes from "./notes/Notes"

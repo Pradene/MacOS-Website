@@ -1,4 +1,4 @@
-import Experience from "../Experience/Experience"
+import Experience from "../Experience"
 
 export default class Clock
 {
@@ -22,13 +22,16 @@ export default class Clock
     {
         this.now = new Date()
 
+        this.year = this.now.getUTCFullYear()
+        this.month = this.now.getMonth() + 1
+        this.day = this.now.getDate()
+
         this.hour = this.now.getHours()
         this.minute = this.now.getMinutes()
-        this.second = this.now.getSeconds()
 
         this.minuteFormatted = this.minute.toString().padStart(2, "0")
-        this.secondFormatted = this.second.toString().padStart(2, "0")
-        this.timeFormatted = `${this.hour}:${this.minuteFormatted}:${this.secondFormatted}`
+        
+        this.timeFormatted = `${this.hour}:${this.minuteFormatted} ${this.day}/${this.month}/${this.year}`
 
 
         this.clock.innerText = this.timeFormatted
@@ -38,6 +41,6 @@ export default class Clock
     {
         this.time()
 
-        setInterval(() => this.time(), 500)
+        setInterval(() => this.time(), 1000)
     }
 }

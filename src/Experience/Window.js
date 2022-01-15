@@ -40,8 +40,20 @@ export default class Window
         this.windowName.innerText = this.name
         this.bar.appendChild(this.windowName)
 
+        this.windowActive = (e) =>
+        {
+            console.log(e)
+            if(e.target === this.window || e.target === this.bar)
+                this.window.style.zIndex = 1
+            else
+                this.window.style.zIndex = 0
+        }
+
+        window.addEventListener('mousedown', this.windowActive)
+
         this.closeButton.addEventListener('click', () =>
         {
+            window.removeEventListener('mousedown', this.windowActive)
             this.killWindow()
         })
 

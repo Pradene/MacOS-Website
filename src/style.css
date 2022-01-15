@@ -54,16 +54,15 @@ body
     height: 40px;
     width: 40px;
     margin: 0px 5px;
-    border-radius: 6px;
+    border-radius: 15%;
     background: black;
     transform-origin: bottom center;
     transition: all 0.3s ease-out;
-    will-change: transform, margin, border-radius;
+    will-change: transform, margin;
 }
 
 .navItem:hover
 {
-    border-radius: 9px;
     margin: 0px 15px;
     transform: scale(1.5, 1.5);
 }
@@ -75,13 +74,13 @@ body
 {
     position: absolute;
     display: block;
-    top: 10%;
-    left: 10%;
+    top: calc(50% - 200px);
+    left: calc(50% - 300px);
     height: 400px;
     width: 600px;
     border-radius: 5px;
-    -webkit-box-shadow: 0px 0px 50px -5px rgba(0,0,0,0.5); 
-    box-shadow: 0px 0px 50px -5px rgba(0,0,0,0.5);
+    -webkit-box-shadow: 0px 0px 50px -5px rgba(0,0,0,0.2); 
+    box-shadow: 0px 0px 50px -5px rgba(0,0,0,0.2);
     background: white;
     will-change: left, top;
 }

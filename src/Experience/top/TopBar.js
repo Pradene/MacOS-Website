@@ -1,5 +1,5 @@
 import Clock from "../clock/Clock"
-import Experience from "../Experience/Experience"
+import Experience from "../Experience"
 
 export default class TopBar
 {
