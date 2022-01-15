@@ -57,6 +57,7 @@ export default class DinoGame
 
         this.bar.addEventListener('mousedown', (e) =>
         {
+            e.preventDefault()
             this.moveWindow(e)
         })
     }
@@ -77,6 +78,8 @@ export default class DinoGame
 
         this.mouseMove = (e) =>
         {
+            e.preventDefault()
+            
             let newX = e.clientX - prevX
             let newY = e.clientY - prevY
 
