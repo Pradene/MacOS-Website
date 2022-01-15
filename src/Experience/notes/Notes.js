@@ -1,13 +1,12 @@
 import Window from "../Window"
 
-export default class DinoGame extends Window
+export default class Notes extends Window
 {
     constructor(name)
     {
         super(name)
 
         this.createNav()
-
         
         this.navButton.addEventListener('click', () =>
         {
