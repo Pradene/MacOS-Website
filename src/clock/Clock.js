@@ -24,9 +24,11 @@ export default class Clock
 
         this.hour = this.now.getHours()
         this.minute = this.now.getMinutes()
+        this.second = this.now.getSeconds()
 
         this.minuteFormatted = this.minute.toString().padStart(2, "0")
-        this.timeFormatted = `${this.hour}:${this.minuteFormatted}`
+        this.secondFormatted = this.second.toString().padStart(2, "0")
+        this.timeFormatted = `${this.hour}:${this.minuteFormatted}:${this.secondFormatted}`
 
 
         this.clock.innerText = this.timeFormatted
@@ -36,9 +38,6 @@ export default class Clock
     {
         this.time()
 
-        setTimeout(() =>
-        {
-            this.time()
-        }, 500)
+        setInterval(() => this.time(), 500)
     }
 }
