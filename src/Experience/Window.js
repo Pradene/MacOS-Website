@@ -47,6 +47,11 @@ export default class Window
                 this.window.style.zIndex = 0
                 e.target.style.zIndex = 1
             }
+            else if(e.target.classList.contains("bar") && e.target !== this.bar)
+            {
+                this.window.style.zIndex = 0
+                e.target.parentElement.style.zIndex = 1
+            }
         }
 
         window.addEventListener('mousedown', this.windowActive)
