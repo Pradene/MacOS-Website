@@ -52,6 +52,14 @@ export default class Window
                 this.window.style.zIndex = 0
                 e.target.parentElement.style.zIndex = 1
             }
+            else if(e.target === this.navButton)
+            {
+                this.windows = document.querySelectorAll('.window')
+                for (let i = 0; i < this.windows.length; i++)
+                    this.windows[i].style.zIndex = 0
+                
+                this.window.style.zIndex = 1
+            }
         }
 
         window.addEventListener('mousedown', this.windowActive)
