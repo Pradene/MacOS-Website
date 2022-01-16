@@ -37,6 +37,8 @@ body
     padding: 0px 5px;
     bottom: 20px;
     left: 50%;
+    -webkit-box-shadow: 0px 0px 50px -5px rgba(0,0,0,0.5); 
+    box-shadow: 0px 0px 50px -5px rgba(0,0,0,0.5);
     transform: translate(-50%, 0%);
 }
 
@@ -54,7 +56,7 @@ body
     height: 40px;
     width: 40px;
     margin: 0px 5px;
-    border-radius: 15%;
+    border-radius: 10px;
     background: black;
     transform-origin: bottom center;
     transition: all 0.3s ease-out;
@@ -65,6 +67,16 @@ body
 {
     margin: 0px 15px;
     transform: scale(1.5, 1.5);
+}
+
+.navSeparator
+{
+    display: block;
+    margin: 0 10px;
+    height: 40px;
+    width: 2px;
+    border-radius: 2px;
+    background:rgba(255, 255, 255, 0.6);
 }
 
 
@@ -80,9 +92,9 @@ body
     height: 400px;
     width: 600px;
     border-radius: 5px;
+    background: white;
     -webkit-box-shadow: 0px 0px 50px -5px rgba(0,0,0,0.2); 
     box-shadow: 0px 0px 50px -5px rgba(0,0,0,0.2);
-    background: white;
     will-change: left, top;
 }
 
@@ -127,20 +139,6 @@ body
 
 /*--------------------------------------------*/
 
-.clock
-{
-    display: block;
-    position: absolute;
-    cursor: default;
-    top: 3px;
-    right: 10px;
-    color: white;
-    font-size: 12px;
-    line-height: 1;
-}
-
-/*--------------------------------------------*/
-
 .topbar
 {
     display: block;
@@ -152,8 +150,8 @@ body
     height: 18px;
     width: 100%;
     background: rgba(255, 255, 255, 0.3);
-    -webkit-box-shadow: 0px 0px 50px -5px rgba(0,0,0,0.5); 
-    box-shadow: 0px 0px 50px -5px rgba(0,0,0,0.5);
+    -webkit-box-shadow: 0px 0px 50px -5px rgba(0,0,0,0.2); 
+    box-shadow: 0px 0px 50px -5px rgba(0,0,0,0.2);
 }
 
 .title
@@ -166,5 +164,20 @@ body
     color: white;
     font-size: 12px;
     font-weight: 100;
+    line-height: 1;
+}
+
+
+/*--------------------------------------------*/
+
+.clock
+{
+    display: block;
+    position: absolute;
+    cursor: default;
+    top: 3px;
+    right: 10px;
+    color: white;
+    font-size: 12px;
     line-height: 1;
 }

@@ -10,8 +10,6 @@ export default class TopBar
 
         this.titleName = title
 
-        console.log(this.title)
-
         this.create()
         this.clock = new Clock(this.topbar)
     }
