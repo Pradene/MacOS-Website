@@ -8,6 +8,7 @@
 html,
 body
 {
+    cursor: default;
     height: 100vh;
     font-family: sans-serif;
 }
@@ -72,11 +73,11 @@ body
 .navSeparator
 {
     display: block;
-    margin: 0 10px;
-    height: 40px;
+    margin: 5px 10px;
+    height: 30px;
     width: 2px;
     border-radius: 2px;
-    background:rgba(255, 255, 255, 0.6);
+    background:rgba(255, 255, 255, 0.4);
 }
 
 
@@ -103,19 +104,19 @@ body
     display: block;
     position: absolute;
     align-items: center;
+    z-index: 1;
     top: 0;
     left: 0;
     right: 0;
     width: 100%;
     height: 20px;
-    background: lightgray;
+    background: #C0BFC0;
     border-radius: 5px 5px 0px 0px;
 }
 
 .windowName
 {
     position: absolute;
-    cursor: default;
     display: block;
     font-size: 12px;
     left: 50%;
@@ -134,6 +135,42 @@ body
     left: 5px;
     border-radius: 5px;
     background: #FF605C;
+}
+
+
+/*--------------------------------------------*/
+
+.sidebar
+{
+    display: flex;
+    flex-direction: column;
+    width: 150px;
+    height: 100%;
+    border-radius: 5px 0px 0px 5px;
+    padding-top: 30px;
+    background: #f1f1f1;
+}
+
+.sidebarTextS
+{
+    padding-left: 8px;
+    margin-bottom: 5px;
+    font-size: 10px;
+    color: rgb(77, 77, 77);
+}
+
+.sidebarTextM
+{
+    padding: 1px 0px;
+    width: 100%;
+    padding-left: 16px;
+    font-size: 14px;
+    color: rgb(36, 36, 36);
+}
+
+.selected
+{
+    background-color: #e2e2e2;
 }
 
 
@@ -158,7 +195,6 @@ body
 {
     display: block;
     position: absolute;
-    cursor: default;
     top: 3px;
     left: 10px;
     color: white;
@@ -174,7 +210,6 @@ body
 {
     display: block;
     position: absolute;
-    cursor: default;
     top: 3px;
     right: 10px;
     color: white;

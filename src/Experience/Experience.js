@@ -28,7 +28,7 @@ export default class Experience
         this.topbar = new TopBar(this.title)
         this.game = new DinoGame("Dino Game")
         this.notes = new Notes("Notes")
-        this.work = new Work("Works")
+        this.work = new Work("Files")
         this.maps = new Maps("Maps")
         this.trash = new Trash("Trash")
     }

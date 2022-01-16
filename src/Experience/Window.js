@@ -8,8 +8,6 @@ export default class Window
         this.main = this.experience.main
         this.nav = this.experience.nav
 
-        setTimeout(() =>  this.trash = this.experience.trash, 100)
-
         this.windowOpen = false
         this.name = name
     }
@@ -60,7 +58,7 @@ export default class Window
             this.moveWindow(e)
         })
 
-        this.trash.navButton.addEventListener('click', () =>
+        this.experience.trash.navButton.addEventListener('click', () =>
         {
             window.removeEventListener('mousedown', this.windowActive)
             this.killWindow()
