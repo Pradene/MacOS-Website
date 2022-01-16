@@ -42,11 +42,11 @@ export default class Window
 
         this.windowActive = (e) =>
         {
-            console.log(e)
-            if(e.target === this.window || e.target === this.bar)
-                this.window.style.zIndex = 1
-            else
+            if(e.target.classList.contains("window") && e.target !== this.window)
+            {
                 this.window.style.zIndex = 0
+                e.target.style.zIndex = 1
+            }
         }
 
         window.addEventListener('mousedown', this.windowActive)
