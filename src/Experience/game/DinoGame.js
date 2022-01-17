@@ -64,7 +64,7 @@ export default class DinoGame extends Window
         {
             this.score = 0
             this.start = false
-            this.defeat = true
+            this.defeat = false
             window.clearInterval(this.increment)
         })
 
@@ -72,7 +72,7 @@ export default class DinoGame extends Window
         {
             this.score = 0
             this.start = false
-            this.defeat = true
+            this.defeat = false
             window.clearInterval(this.increment)
         })
     }
@@ -114,7 +114,7 @@ export default class DinoGame extends Window
                 this.defeat = true
                 window.clearInterval(interval)
                 obstacle.remove()
-                
+
                 if(this.score > this.highScore)
                 {
                     this.highScore = this.score
