@@ -213,6 +213,22 @@ body
     right: 30px;
 }
 
+.highScore
+{
+    position: absolute;
+    top: 50px;
+    right: 30px;
+}
+
+.restartButton
+{
+    position: absolute;
+    cursor: pointer;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 .jump
 {
     animation: dino 0.4s linear;

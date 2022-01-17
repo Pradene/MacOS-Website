@@ -8,6 +8,7 @@ export default class DinoGame extends Window
 
         this.position = 0
         this.score = 0
+        this.highScore = 0
         this.isJumping = false
         this.start = false
         this.defeat = false
@@ -27,9 +28,6 @@ export default class DinoGame extends Window
 
     initGame()
     {
-        this.defeat = false
-        this.score = 0
-
         this.dino = document.createElement("span")
         this.dino.classList.add("dino")
         this.window.appendChild(this.dino)
@@ -37,6 +35,10 @@ export default class DinoGame extends Window
         this.scoreText = document.createElement("span")
         this.scoreText.classList.add("score")
         this.window.appendChild(this.scoreText)
+
+        this.highScoreText = document.createElement("span")
+        this.highScoreText.classList.add("highScore")
+        this.window.appendChild(this.highScoreText)
 
 
         window.addEventListener('keydown', (e) =>
@@ -57,59 +59,6 @@ export default class DinoGame extends Window
                 this.game()
             }
         })
-    }
-
-    jump()
-    {
-        this.dino.classList.add("jump")
-        setTimeout(() => 
-        {
-            this.isJumping = false
-            this.dino.classList.remove("jump")
-        }, 400)
-    }
-
-    game()
-    {
-        let position = 700
-        let obstacle = document.createElement("span")
-        obstacle.classList.add("obstacle")
-        obstacle.style.left = `${position}px`
-        this.window.appendChild(obstacle)
-
-        setInterval(() => {
-            this.dinoPosition = parseInt(window.getComputedStyle(this.dino).getPropertyValue("bottom"))
-            if(this.dinoPosition <= 90 && position >= 20 && position <= 80)
-            {
-                this.defeat = true
-            }
-            else
-            {
-                position -= 18
-                obstacle.style.left = `${position}px`
-
-                if(position <= -50 || this.defeat)
-                {
-                    obstacle.remove()
-                }
-            }
-        }, 20)
-
-
-        if(!this.defeat) setTimeout(() => this.game(), Math.round(Math.random() * 500 + 500))
-    }
-
-    scoreIncrement()
-    {
-        this.scoreText.innerText = `Score : ${this.score}` 
-
-        this.increment = setInterval(() => {
-            if (!this.defeat) {
-                this.score++
-                this.scoreText.innerText = `Score : ${this.score}`
-            }
-        }, 200)
-        
 
         this.closeButton.addEventListener('click', () =>
         {
@@ -125,6 +74,83 @@ export default class DinoGame extends Window
             this.start = false
             this.defeat = true
             window.clearInterval(this.increment)
+        })
+    }
+
+    jump()
+    {
+        this.dino.classList.add("jump")
+        setTimeout(() => 
+        {
+            this.isJumping = false
+            this.dino.classList.remove("jump")
+        }, 400)
+    }
+
+    scoreIncrement()
+    {
+        this.scoreText.innerText = `Score : ${this.score}` 
+
+        this.increment = setInterval(() => {
+            if (!this.defeat) {
+                this.score++
+                this.scoreText.innerText = `Score : ${this.score}`
+            }
+        }, 200)
+    }
+
+    game()
+    {
+        let position = 700
+        let obstacle = document.createElement("span")
+        obstacle.classList.add("obstacle")
+        obstacle.style.left = `${position}px`
+        this.window.appendChild(obstacle)
+
+        const interval = setInterval(() => {
+            this.dinoPosition = parseInt(window.getComputedStyle(this.dino).getPropertyValue("bottom"))
+            if((this.dinoPosition <= 90 && position >= 20 && position <= 80) || this.defeat)
+            {
+                this.defeat = true
+                window.clearInterval(interval)
+                obstacle.remove()
+                
+                if(this.score > this.highScore)
+                {
+                    this.highScore = this.score
+                    this.highScoreText.innerText = `best : ${this.highScore}`
+                }
+            }
+            else if(position <= -50)
+            {
+                obstacle.remove()
+                window.clearInterval(interval)
+            }
+            else
+            {
+                position -= 20
+                obstacle.style.left = `${position}px`
+            }
+        }, 25)
+
+        if(!this.defeat) setTimeout(() => this.game(), Math.round(Math.random() * 500 + 500))
+
+        if (this.defeat) this.restart()
+    }
+
+    restart()
+    {
+        this.restartButton = document.createElement("span")
+        this.restartButton.classList.add("restartButton")
+        this.restartButton.innerText = "Restart"
+        this.window.appendChild(this.restartButton)
+
+        this.restartButton.addEventListener('click', () =>
+        {
+            this.score = 0
+            this.defeat = false
+            this.restartButton.remove()
+            this.game()
         })
     }
 }
