@@ -20,9 +20,13 @@ export default class Work extends Window
 
     initWork()
     {
+        this.content = document.createElement("div")
+        this.content.classList.add("content")
+        this.window.appendChild(this.content)
+
         this.sidebar = document.createElement("div")
         this.sidebar.classList.add("sidebar")
-        this.window.appendChild(this.sidebar)
+        this.content.appendChild(this.sidebar)
 
         this.sidebarFav = document.createElement("span")
         this.sidebarFav.innerText = "Favorites"

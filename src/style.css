@@ -86,6 +86,7 @@ body
 .window
 {
     position: absolute;
+    overflow-x: hidden;
     display: block;
     z-index: 1;
     top: calc(50% - 200px);
@@ -102,16 +103,13 @@ body
 .bar
 {
     display: block;
-    position: absolute;
     align-items: center;
     z-index: 1;
-    top: 0;
-    left: 0;
-    right: 0;
     width: 100%;
     height: 20px;
     background: #C0BFC0;
     border-radius: 5px 5px 0px 0px;
+    border-bottom: solid 1px rgb(151, 151, 151);
 }
 
 .windowName
@@ -120,8 +118,8 @@ body
     display: block;
     font-size: 12px;
     left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    top: 4px;
+    transform: translate(-50%, 0);
 }
 
 .closeButton
@@ -140,6 +138,12 @@ body
 
 /*--------------------------------------------*/
 
+.content
+{
+    display: flex;
+    height: calc(100% - 20px);
+}
+
 .sidebar
 {
     display: flex;
@@ -147,7 +151,8 @@ body
     width: 150px;
     height: 100%;
     border-radius: 5px 0px 0px 5px;
-    padding-top: 30px;
+    border-right: solid 1px #e2e2e2;
+    padding-top: 10px;
     background: #f1f1f1;
 }
 
@@ -171,6 +176,73 @@ body
 .selected
 {
     background-color: #e2e2e2;
+}
+
+
+/*--------------------------------------------*/
+
+.dino
+{
+    display: block;
+    position: absolute;
+    left: 20px;
+    bottom: 50px;
+    width: 60px;
+    height: 60px;
+    background-image: url(../static/dino.png);
+    background-size: cover;
+    will-change: bottom;
+}
+
+.obstacle
+{
+    display: block;
+    position: absolute;
+    bottom: 50px;
+    width: 50px;
+    height: 50px;
+    background-image: url(../static/cactus.png);
+    background-size: cover;
+    will-change: left;
+}
+
+.score
+{
+    position: absolute;
+    top: 30px;
+    right: 30px;
+}
+
+.jump
+{
+    animation: dino 0.4s linear;
+}
+
+@keyframes dino {
+    0%
+    {
+        bottom: 50px;
+    }
+
+    30%
+    {
+        bottom: 150px;
+    }
+
+    50%
+    {
+        bottom: 200px;
+    }
+
+    70%
+    {
+        bottom: 150px;
+    }
+
+    100%
+    {
+        bottom: 50px;
+    }
 }
 
 
