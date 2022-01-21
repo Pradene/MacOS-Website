@@ -27,18 +27,18 @@ export default class Window
         this.window.classList.add("window")
         this.main.appendChild(this.window)
 
-        this.bar = document.createElement("div")
-        this.bar.classList.add("bar")
-        this.window.appendChild(this.bar)
+        this.window__bar = document.createElement("div")
+        this.window__bar.classList.add("window__bar")
+        this.window.appendChild(this.window__bar)
 
-        this.closeButton = document.createElement("span")
-        this.closeButton.classList.add("closeButton")
-        this.bar.appendChild(this.closeButton)
+        this.window__closeButton = document.createElement("span")
+        this.window__closeButton.classList.add("window__closeButton")
+        this.window__bar.appendChild(this.window__closeButton)
 
-        this.windowName = document.createElement("span")
-        this.windowName.classList.add("windowName")
-        this.windowName.innerText = this.name
-        this.bar.appendChild(this.windowName)
+        this.window__name = document.createElement("span")
+        this.window__name.classList.add("window__name")
+        this.window__name.innerText = this.name
+        this.window__bar.appendChild(this.window__name)
         
 
         window.addEventListener('mousedown', (e) =>
@@ -46,13 +46,13 @@ export default class Window
             this.windowActive(e)
         })
 
-        this.closeButton.addEventListener('click', () =>
+        this.window__closeButton.addEventListener('click', () =>
         {
             window.removeEventListener('mousedown', this.windowActive)
             this.killWindow()
         })
 
-        this.bar.addEventListener('mousedown', (e) =>
+        this.window__bar.addEventListener('mousedown', (e) =>
         {
             e.preventDefault()
             this.moveWindow(e)
@@ -72,7 +72,7 @@ export default class Window
             this.window.style.zIndex = 0
             e.target.style.zIndex = 1
         }
-        else if(e.target.classList.contains("bar") && e.target !== this.bar)
+        else if(e.target.classList.contains("window__bar") && e.target !== this.window__bar)
         {
             this.window.style.zIndex = 0
             e.target.parentElement.style.zIndex = 1

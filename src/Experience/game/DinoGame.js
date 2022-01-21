@@ -32,6 +32,10 @@ export default class DinoGame extends Window
         this.dino.classList.add("dino")
         this.window.appendChild(this.dino)
 
+        this.floor = document.createElement("span")
+        this.floor.classList.add("floor")
+        this.window.appendChild(this.floor)
+
         this.scoreText = document.createElement("span")
         this.scoreText.classList.add("score")
         this.window.appendChild(this.scoreText)
@@ -60,9 +64,10 @@ export default class DinoGame extends Window
             }
         })
 
-        this.closeButton.addEventListener('click', () =>
+        this.window__closeButton.addEventListener('click', () =>
         {
             this.score = 0
+            this.highScore = 0
             this.start = false
             this.defeat = false
             window.clearInterval(this.increment)
@@ -71,6 +76,7 @@ export default class DinoGame extends Window
         this.experience.trash.navButton.addEventListener('click', () =>
         {
             this.score = 0
+            this.highScore = 0
             this.start = false
             this.defeat = false
             window.clearInterval(this.increment)

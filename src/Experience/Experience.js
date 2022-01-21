@@ -24,8 +24,8 @@ export default class Experience
         this.main = document.getElementById('main')
         this.title = "Pradene"
 
-        this.nav = new Nav()
         this.topbar = new TopBar(this.title)
+        this.nav = new Nav()
         this.game = new DinoGame("Dino Game")
         this.notes = new Notes("Notes")
         this.work = new Work("Files")
