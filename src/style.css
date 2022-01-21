@@ -260,12 +260,12 @@ body
 {
     display: block;
     position: absolute;
-    bottom: 55px;
+    bottom: 58px;
     left: 0;
     z-index: -1;
     height: 2px;
     width: 100%;
-    background: #4e4e4e;
+    background: #6d6d6d;
 }
 
 .obstacle
@@ -298,6 +298,7 @@ body
 {
     position: absolute;
     cursor: pointer;
+    pointer-events: initial;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);

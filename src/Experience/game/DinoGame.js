@@ -113,13 +113,12 @@ export default class DinoGame extends Window
         obstacle.style.left = `${position}px`
         this.window.appendChild(obstacle)
 
-        const interval = setInterval(() => {
+        const game = setInterval(() => {
             this.dinoPosition = parseInt(window.getComputedStyle(this.dino).getPropertyValue("bottom"))
             if((this.dinoPosition <= 90 && position >= 20 && position <= 80) || this.defeat)
             {
                 this.defeat = true
-                window.clearInterval(interval)
-                obstacle.remove()
+                window.clearInterval(game)
 
                 if(this.score > this.highScore)
                 {
@@ -130,7 +129,7 @@ export default class DinoGame extends Window
             else if(position <= -50)
             {
                 obstacle.remove()
-                window.clearInterval(interval)
+                window.clearInterval(game)
             }
             else
             {
@@ -141,7 +140,7 @@ export default class DinoGame extends Window
 
         if(!this.defeat) setTimeout(() => this.game(), Math.round(Math.random() * 500 + 500))
 
-        if (this.defeat) this.restart()
+        if(this.defeat) this.restart()
     }
 
     restart()
@@ -153,6 +152,9 @@ export default class DinoGame extends Window
 
         this.restartButton.addEventListener('click', () =>
         {
+            for (let i = 0; i < document.querySelectorAll('.obstacle').length; i++)
+                document.querySelector('.obstacle').remove()
+                
             this.score = 0
             this.defeat = false
             this.restartButton.remove()
