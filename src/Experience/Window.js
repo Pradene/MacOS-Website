@@ -2,14 +2,18 @@ import Experience from "./Experience"
 
 export default class Window
 {
-    constructor(name)
+    constructor(name, cover)
     {
         this.experience = new Experience()
         this.main = this.experience.main
         this.nav = this.experience.nav
 
         this.windowOpen = false
+
         this.name = name
+        this.cover = cover
+
+        console.log(this.cover, this.name)
     }
 
     createNav()
@@ -25,6 +29,8 @@ export default class Window
 
         this.window = document.createElement("div")
         this.window.classList.add("window")
+        if(document.querySelectorAll(".window"))
+            this.window.style.zIndex = document.querySelectorAll(".window").length + 1
         this.main.appendChild(this.window)
 
         this.window__bar = document.createElement("div")
@@ -69,13 +75,23 @@ export default class Window
     {
         if(e.target.classList.contains("window") && e.target !== this.window)
         {
-            this.window.style.zIndex = 0
-            e.target.style.zIndex = 1
+            this.window_zIndex = window.getComputedStyle(e.target).getPropertyValue("z-index")
+            for (let i = 0; i < document.querySelectorAll(".window").length; i++) {
+                let elem = document.getElementsByClassName("window")[i]
+                if(window.getComputedStyle(elem).getPropertyValue("z-index") > this.window_zIndex)
+                    elem.style.zIndex--
+            }
+            e.target.style.zIndex = document.querySelectorAll(".window").length
         }
         else if(e.target.classList.contains("window__bar") && e.target !== this.window__bar)
         {
-            this.window.style.zIndex = 0
-            e.target.parentElement.style.zIndex = 1
+            this.window_zIndex = window.getComputedStyle(e.target.parentElement).getPropertyValue("z-index")
+            for (let i = 0; i < document.querySelectorAll(".window").length; i++) {
+                let elem = document.getElementsByClassName("window")[i]
+                if(window.getComputedStyle(elem).getPropertyValue("z-index") > this.window_zIndex)
+                    elem.style.zIndex--
+            }
+            e.target.parentElement.style.zIndex = document.querySelectorAll(".window").length
         }
         else if(e.target === this.navButton)
         {
