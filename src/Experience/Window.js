@@ -95,13 +95,16 @@ export default class Window
         }
         else if(e.target === this.navButton)
         {
-            this.window_zIndex = window.getComputedStyle(this.window).getPropertyValue("z-index")
-            for (let i = 0; i < document.querySelectorAll(".window").length; i++) {
-                let elem = document.getElementsByClassName("window")[i]
-                if(window.getComputedStyle(elem).getPropertyValue("z-index") > this.window_zIndex)
-                    elem.style.zIndex -= 1
+            if(this.windowOpen)
+            {                
+                this.window_zIndex = window.getComputedStyle(this.window).getPropertyValue("z-index")
+                for (let i = 0; i < document.querySelectorAll(".window").length; i++) {
+                    let elem = document.getElementsByClassName("window")[i]
+                    if(window.getComputedStyle(elem).getPropertyValue("z-index") > this.window_zIndex)
+                        elem.style.zIndex -= 1
+                }
+                this.window.style.zIndex = document.querySelectorAll(".window").length
             }
-            this.window.style.zIndex = document.querySelectorAll(".window").length
         }
     }
 
