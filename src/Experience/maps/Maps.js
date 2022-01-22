@@ -2,18 +2,14 @@ import Window from "../Window"
 
 export default class Maps extends Window
 {
-    constructor(name)
+    constructor(name, cover)
     {
-        super(name)
+        super(name, cover)
 
-        this.createNav()
-        
         this.navButton.addEventListener('click', () =>
         {
             if(this.windowOpen === false)
-            {
                 this.createWindow()
-            }
         })
     }
 }

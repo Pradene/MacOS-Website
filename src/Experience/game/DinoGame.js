@@ -13,8 +13,6 @@ export default class DinoGame extends Window
         this.start = false
         this.defeat = false
 
-        this.createNav()
-
         
         this.navButton.addEventListener('click', () =>
         {

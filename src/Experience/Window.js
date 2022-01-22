@@ -12,14 +12,15 @@ export default class Window
 
         this.name = name
         this.cover = cover
-
-        console.log(this.cover, this.name)
+        
+        this.createNav()
     }
 
     createNav()
     {
         this.navButton = document.createElement("span")
         this.navButton.classList.add("navItem")
+        this.navButton.style.backgroundImage = `url(${this.cover})`
         this.nav.navChild.appendChild(this.navButton)
     }
 

@@ -2,12 +2,14 @@ import Experience from "../Experience"
 
 export default class Trash
 {
-    constructor()
+    constructor(cover)
     {
         this.experience = new Experience()
         this.nav = this.experience.nav
 
         this.createNav()
+    
+        this.navButton.style.backgroundImage = `url(${cover})`
     }
 
     createNav()
